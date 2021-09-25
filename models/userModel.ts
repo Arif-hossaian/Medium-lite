@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { IUser } from '../config/interface';
 
 const userSchema = new mongoose.Schema(
   {
@@ -30,7 +31,7 @@ const userSchema = new mongoose.Schema(
     },
     type: {
       type: String,
-      default: 'normal', // fast
+      default: 'register',
     },
   },
   {
@@ -38,4 +39,4 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('User', userSchema);
+export default mongoose.model<IUser>('User', userSchema);
